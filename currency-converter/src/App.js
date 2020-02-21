@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-import './App.css';
-import converter from './component/converter';
+
+import './main.css';
+import Converter from './components/converter/Converter';
 
 class App extends Component {
   render() {
-    return <converter />
+    return (
+            <div></div>
+    );
+
+    
   }
 }
-
 export default App;
-
