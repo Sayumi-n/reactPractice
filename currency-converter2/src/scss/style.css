@@ -1,0 +1,57 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background: #fcf8e8;
+}
+
+body h1 {
+  padding: 0.5em;
+  margin: 0;
+}
+
+body h2 {
+  margin-top: 0.25em;
+}
+
+body i {
+  padding: 0 0.25em 0 0.25em;
+}
+
+body div {
+  margin: 2em auto;
+  padding: 0 auto;
+  background: white;
+  border-radius: 8px;
+}
+
+body .main {
+  -webkit-box-shadow: 3px 5px 45px black;
+          box-shadow: 3px 5px 45px black;
+}
+
+body .form-container {
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body .form {
+  padding-bottom: 2em;
+}
+
+body #result-text {
+  text-align: center;
+  padding-bottom: 2em;
+}
+/*# sourceMappingURL=style.css.map */
