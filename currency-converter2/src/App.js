@@ -17,7 +17,7 @@ class CurrencyConverter extends React.Component {
     this.state = {
       baseCurrency:'JPY',
       convertToCurrency:'CAD',
-      baseAmount: 100,
+      baseAmount: 1,
       rates: [],
       currencies: []
     };

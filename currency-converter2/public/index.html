@@ -12,18 +12,21 @@
     <title>CurrencyConverter</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" href="    https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js">
+
   </head>
   <body>
     <div class="main ui text container">
   
       <div class="ui dividing centered header"> 
-        <h1>Currency Converter<i class="money bill alternate outline icon"></i></h1>
+        <h1>Currency Converter<span></span><i class="money bill alternate outline icon"></i></h1>
      </div>
      
      <div id="root"></div>
+     <h3>Graph</h3>
+     <canvas id="myChart" width="400" height="400"></canvas>
      
    </div>
-
 
   </body>
 </html>
