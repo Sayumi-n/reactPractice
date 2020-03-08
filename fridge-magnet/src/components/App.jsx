@@ -3,9 +3,10 @@ import words from '../api/words';
 import StartBtn from './StartBtn';
 import WordList from './WordList';
 import { DragDropContext} from 'react-beautiful-dnd';
+import initialData from './InitialData'
 
 class App extends React.Component{
-    state = { words: []};
+    state = { words: [], initialData, column: []};
 
     
     onSearchSubmit = async term =>{
@@ -16,28 +17,33 @@ class App extends React.Component{
         },
     });
     this.setState({
-        words: response.data.map(w => w.word)
-        // words: response.data
+        words: response.data.map(w => w.word),
+        column: initialData.columnOrder.map((columnId =>initialData.columns[columnId]))
     });
+
+    }
+    onDragEnd = result =>{
 
     }
 
     
 
     render(){
-     return (
+
+        return (
+
     <DragDropContext
       onDragEnd = {this.onDragEnd}
     >
     <div className="" style={{marginTop:'10px'}}>
         <StartBtn onSubmit={this.onSearchSubmit} />
         <WordList
-         onWordSelect={this.onWordSelect} 
-         words={this.state.words} />
+         words={this.state.words} key={this.state.column.id} column={this.state.column} />
 
     </div>
     </DragDropContext>
-    );
+     );
+     
 }
 }
 
