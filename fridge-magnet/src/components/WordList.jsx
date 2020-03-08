@@ -1,24 +1,20 @@
 import React from 'react'
 import WordItem from './WordItem';
 import './App.css'
-import { Droppable } from 'react-beautiful-dnd';
 
-const WordList = props =>{
+const WordList = ({words, onWordSelect}) =>{
 
-    const words = props.words.map((word, index) =>{
-     return <WordItem key={word} word={word} index={index} />
+    const renderedList = words.map((word) =>{
+     return(
+     <WordItem 
+     key={word} 
+     word={word}
+     onWordSelect={onWordSelect}
+     />
+     );
     });
 
-return (
-<Droppable droppableId={this}>
-    {provided =>(
-    <div className='container' innerRef={provided.innerRef} {...provided.droppableProps}>
-        {words}
-        {provided.placeholder}
-    </div>
-    )}
-</Droppable>
-);
+return <div className='container'>{renderedList}</div>;
 };
 
 export default WordList;
