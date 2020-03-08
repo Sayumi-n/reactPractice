@@ -25,7 +25,6 @@ class App extends React.Component{
 
     onWordSelect = word =>{
         this.setState({selectedWord: word});
-        // selectedWord.push(state.value);
     }
 
     

@@ -9,7 +9,7 @@ const CreatePhrase = ({word}) =>{
 
     return(
      <div className="container phrase-area">
-         <div className="row justify-content-md-center">
+         <div className="row align-self-center">
              <div className="col col-md-auto">
                 <span  className="phrase-item">
                     {word}
