@@ -2,7 +2,7 @@ import React from 'react';
 
 class SearchBar extends React.Component {
 
-    state = { date: new Date().toISOString().slice(0,10)};
+    state = {term: ''};
 
     onInputChange = e =>{
         this.setState({term: e.target.value});
@@ -10,7 +10,7 @@ class SearchBar extends React.Component {
 
     onFormSubmit = e =>{
         e.preventDefault();
-        this.props.onFormSubmit(this.state.date);
+        this.props.onFormSubmit(this.state.term);
     }
 
     render() {
@@ -18,13 +18,12 @@ class SearchBar extends React.Component {
             <div className="container">
                 <form className="form-group" onSubmit={this.onFormSubmit}>
                 <div>
-                 <label >Find Flight</label>
-                 <input type="date"
+                 <label >Video Search</label>
+                 <input type="text"
                  className="form-control"
-                 value={this.state.date}
+                 value={this.state.term}
                  onChange={this.onInputChange}
                  />
-                 <input type="submit"/>
                  </div>
                 </form>
             </div>

@@ -1,27 +1,40 @@
 import React from 'react';
-// import aviationstack from '../api/aviationstack';
+import aviationstack from '../api/aviationstack';
 import SearchBar from './SearchBar';
 
 
 class App extends React.Component{
-    state = { result: [] };
 
-    onSearchSubmit = async ()=>{
-     const response = await fetch('http://api.aviationstack.com/v1/flights?access_key=d58ad084710bee755d75f9b432c79a3e'); 
-    //  {
-    //    params: {flight_date: date},
-    //  });
+   state = { results: [] };
 
-     this.setState({result:response.data});
-    }
+//    componentDidMount(){
+//        this.onTermSubmit('dogs');
+//    }
+   
+   onTermSubmit = async date =>{
 
+     const response = await aviationstack.get('/flights',{
+         params:{
+             access_key: `${process.env.REACT_APP_API_KEY}`,
+             flight_date: date
+         }
+     });
+
+     this.setState({
+         results: response.data[0], 
+    });
+   };
     
+//    onVideoSelect = video =>{
+//        this.setState({selectedVideo: video})
+//    }
 
     render(){
      return (
-    <div className="" >
-        <SearchBar onSubmit={this.onSearchSubmit} />
-        <p>{this.state.result}</p>
+    <div className="" style={{marginTop:'10px'}}>
+        <SearchBar onFormSubmit={this.onTermSubmit}/>
+
+
     </div>
     );
 }
