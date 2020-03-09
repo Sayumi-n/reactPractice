@@ -1,0 +1,26 @@
+@import '_startBtn', '_wordItem', '_createPhrase';
+
+// font-family: 'Martel Sans', sans-serif;
+// font-family: 'Duru Sans', sans-serif;
+// #333333 magnet font color
+// #f9fcfb magnet bg color
+// #f6e1e1
+
+*{
+    box-sizing: border-box;
+}
+html{
+    margin: 0;
+    padding: 0;
+    text-align:center;
+}
+body{
+    font-family: 'Martel Sans', sans-serif;
+    background-color:#fffdf9;
+}
+
+h1{
+    font-family: 'Duru Sans', sans-serif;
+    font-weight:800;
+}
+
