@@ -2,9 +2,12 @@ import React from 'react'
 import './App.css'
 import { Draggable } from 'react-beautiful-dnd';
 
-const WordItem = ({word, onWordSelect, column}) =>{
+
+const WordItem = ({word, onWordSelect, index}) =>{
+
 return(
-    <Draggable draggableId={word} index={word.index}>
+
+    <Draggable draggableId={`${word}${index}`} index={index}>
     {(provided) =>  (
     <div className="wordItem col col-lg-0.5" 
     onDoubleClick={()=>onWordSelect(word)}

@@ -40,20 +40,21 @@ class App extends React.Component{
             return;
         }
         if(
-            destination.droppableId === SourceBufferList.droppableId &&
+            destination.droppableId === source.droppableId &&
             destination.index === source.index
         ){
             return;
         }
-
-        const column =this.state.column[source.droppableId];
-        const newWordIds = Array.from(column.wordIds);
-        newWordIds.splice(source.index , 1);
+       
+        console.log(source.droppableId);
+        const column =this.state.columns[this.state.column.id];
+        const newWordIds = Array.from(words.word);
+        newWordIds.splice(source.index, 1);
         newWordIds.splice(destination.index, 0, draggableId);
 
         const newColumn = {
             ...column,
-             wordIds: newWordIds,
+             words: newWordIds,
         };
 
         const newState ={
@@ -64,11 +65,14 @@ class App extends React.Component{
             },
         };
         this.setState(newState);
+
+
     };
     
 
     render(){
-     return (
+        console.log (this.state)
+            return (
     <div className="" style={{marginTop:'10px'}}>
         <StartBtn onSubmit={this.onSearchSubmit} />
         <DragDropContext onDragEnd={this.onDragEnd}>

@@ -17,7 +17,7 @@ onFormSubmit= (e) =>{
         <div className='container startBtnArea'>
            <form onSubmit={this.onFormSubmit} className=''>
                <div className='field' >
-               <h1>Fridge Magnet Generator</h1>
+               <h1>Fridge Magnet Poetry Generator</h1>
                <img src="https://cdn.pixabay.com/photo/2012/04/12/10/24/refrigerator-29345_1280.png" width="80px" alt=""/>
                <input 
                type="text" 

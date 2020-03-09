@@ -54,6 +54,7 @@ img {
   display: flex;
   height: 50px;
   border-radius: 10px;
+  margin: 20px auto;
 }
 
 .phrase-area .row {

@@ -16,6 +16,7 @@ const CreatePhrase = ({word}) =>{
                 </span>
              </div>
          </div>
+
      </div>
     )
 }

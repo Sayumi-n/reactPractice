@@ -4,7 +4,7 @@ import './App.css'
 import { Droppable } from 'react-beautiful-dnd'
 
 const WordList = ({words, onWordSelect, column}) =>{
-
+console.log(column);
     const renderedList = words.map((word, index) =>{
      return(
      <WordItem 
