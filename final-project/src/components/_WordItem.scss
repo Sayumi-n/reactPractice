@@ -1,22 +1,21 @@
-.wordItem{
-    float:left;
-    margin:7px;
-    padding:3px;
-    border-right: 2px solid #333333;
-    border-bottom: 1.5px solid #333333;
-    border-left: 0.5px solid #333333;
-    border-top: 0.5px solid #333333;
-    background-color:#f9fcfb;
-    cursor: pointer;
+.wordItem {
+  float: left;
+  margin: 7px;
+  padding: 3px;
+  border-right: 2px solid #333333;
+  border-bottom: 1.5px solid #333333;
+  border-left: 0.5px solid #333333;
+  border-top: 0.5px solid #333333;
+  background-color: #f9fcfb;
+  cursor: pointer;
 }
 
-.wordSpan{
-    width:5%;
-    color:#333333;
-    padding: 15px 3px 3px 3px;
-
+.wordSpan {
+  width: 5%;
+  color: #333333;
+  padding: 15px 3px 3px 3px;
 }
 
-.container{
-    margin-top:20px;
+.container {
+  margin-top: 20px;
 }
