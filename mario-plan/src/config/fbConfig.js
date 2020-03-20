@@ -3,7 +3,7 @@ import "firebase/firestore";
 import "firebase/auth";
 
 // Your web app's Firebase configuration
-var firebaseConfig = {
+var config = {
   apiKey: "AIzaSyCmkK9uDi9zsfttmypS2ABHshs5q_XDWss",
   authDomain: "net-ninja-mario-plan-4da64.firebaseapp.com",
   databaseURL: "https://net-ninja-mario-plan-4da64.firebaseio.com",
@@ -14,8 +14,7 @@ var firebaseConfig = {
   measurementId: "G-JQ1JPHNFKQ"
 };
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-firebase.analytics();
+firebase.initializeApp(config);
 firebase.firestore().settings({ timestampsInSnapshots: true });
 
 export default firebase;
