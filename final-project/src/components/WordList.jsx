@@ -3,7 +3,7 @@ import WordItem from "./WordItem";
 import "./App.css";
 import { Droppable } from "react-beautiful-dnd";
 
-const WordList = ({ words, onWordSelect, column }) => {
+const WordList = ({ words, onWordSelect, columns }) => {
   const renderedList = words.map((word, index) => {
     return (
       <WordItem
@@ -14,9 +14,9 @@ const WordList = ({ words, onWordSelect, column }) => {
       />
     );
   });
-
+  console.log(columns);
   return (
-    <Droppable droppableId={column.id}>
+    <Droppable droppableId={columns} direction="vertical">
       {provided => (
         <div
           className="container"

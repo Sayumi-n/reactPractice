@@ -11,7 +11,8 @@ class App extends React.Component {
   state = {
     words: [],
     selectedWord: ["Double click or Drag & Drop words HERE!"],
-    column: []
+    column: [],
+    InitialData
   };
 
   onSearchSubmit = async term => {
@@ -23,14 +24,12 @@ class App extends React.Component {
     });
     this.setState({
       words: response.data.map(w => w.word)
-      // words: response.data
     });
   };
 
   onWordSelect = word => {
     this.setState({
-      selectedWord: word,
-      column: InitialData.columnOrder.map(columnId => InitialData.columns.id)
+      selectedWord: word
     });
   };
 
@@ -69,7 +68,7 @@ class App extends React.Component {
   };
 
   render() {
-    console.log(this.state.column.id);
+    console.log(this.state.columnId);
     return (
       <div className="" style={{ marginTop: "10px" }}>
         <StartBtn onSubmit={this.onSearchSubmit} />
