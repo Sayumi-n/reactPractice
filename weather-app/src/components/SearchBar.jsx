@@ -1,32 +1,27 @@
 import React, { useContext } from "react";
-import { CityNameContext } from "../context/CityNameContext";
+import { WeatherContext } from "../context/WeatherContext";
 
 export default function SearchBar() {
-  const [value, setValue] = useContext(CityNameContext);
-  const onInputChange = e => {
-    setValue({
-      value: e.target.value
-    });
-  };
-  const onFormSubmit = e => {
-    e.preventDefault();
-    setValue({
-      value: ""
-    });
-  };
+  const appContext = useContext(WeatherContext);
+  const { handleSubmit, handleSearchChange } = appContext;
+
   return (
-    <form onSubmit={onFormSubmit}>
-      <input
-        type="text"
-        name="city"
-        value={value.city}
-        onChange={onInputChange}
-      />
-      <input
-        type="button"
-        value="submit
-     "
-      />
-    </form>
+    <div className="">
+      <form className="" onSubmit={e => handleSubmit(e)}>
+        <label htmlFor="search">Search:</label>
+        <input
+          data-age=""
+          onChange={e => handleSearchChange(e)}
+          type="text"
+          className="form-control"
+          id="search"
+          placeholder=""
+          name="search"
+        />
+        <button type="submit" className="">
+          <i className="fa fa-search"></i>
+        </button>
+      </form>
+    </div>
   );
 }

@@ -1,52 +1,36 @@
-import React, { useState, useEffect, useContext } from "react";
-import OpenWeather from "../apis/OpenWeather";
-import { CityNameContext } from "../context/CityNameContext";
+import React, { useContext } from "react";
+import SearchBar from "./SearchBar";
+import { WeatherContext } from "../context/WeatherContext";
+import DisplayWeather from "./DisplayWeather";
 
-const KEY = process.env.REACT_APP_API_KEY;
+export default function Weather() {
+  const appContext = useContext(WeatherContext);
+  const { showHomeButton, results, handleReturnHome } = appContext;
+  console.log(results);
 
-const Weather = () => {
-  const [data, setData] = useState([""]);
-  const [loading, setLoading] = useState(true);
-  const [value, setValue] = useContext(CityNameContext);
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await OpenWeather.get(
-        `./weather?q=${value.city}&appid=${KEY}&units=metric`
-      );
-      setData(response.data);
-      setLoading(false);
-    };
-    fetchData();
-  }, []);
-  let myObj = data;
   return (
-    <div>
-      {loading ? <div>loading</div> : <div>{JSON.stringify(data)}</div>}
-    </div>
+    <>
+      <SearchBar></SearchBar>
+      <div className="container my-5 home-button">
+        {showHomeButton && (
+          <button
+            type="button"
+            className="btn btn-warning"
+            onClick={() => handleReturnHome()}
+          >
+            Go Back Home
+          </button>
+        )}
+        <div className=" d-flex d-flex justify-content-center mb-3">
+          <h1 className="text-slaned ">Recipe List</h1>
+        </div>
+
+        <div className="row recipe-list">
+          {results.weather.map((result, index) => (
+            <DisplayWeather key={index} result={result} />
+          ))}
+        </div>
+      </div>
+    </>
   );
-};
-
-export default Weather;
-
-// const useFetch = () => {
-//   const [data, setData] = useState(null);
-//   const [loading, setLoading] = useState(true);
-//   const [value, setValue] = useContext(CityNameContext);
-
-//   useEffect(async () => {
-//     const response = await OpenWeather.get(
-//       `./weather?q=${value.city}&appid=${KEY}&units=metric`
-//     );
-//     setData(response.data);
-//     setLoading(false);
-//   }, []);
-//   return { data, loading };
-// };
-
-// export default () => {
-//   const { data, loading } = useFetch();
-//   console.log({ data });
-//   return (
-//     <div>{loading ? <div>loading</div> : <div>{data.weather[0]}</div>}</div>
-//   );
-// };
+}
