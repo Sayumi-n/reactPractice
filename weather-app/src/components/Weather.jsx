@@ -5,32 +5,22 @@ import DisplayWeather from "./DisplayWeather";
 
 export default function Weather() {
   const appContext = useContext(WeatherContext);
-  const { showHomeButton, results, handleReturnHome } = appContext;
-  console.log(results);
+  const { results, error } = appContext;
 
   return (
-    <>
+    <div className="ui container">
       <SearchBar></SearchBar>
-      <div className="container my-5 home-button">
-        {showHomeButton && (
-          <button
-            type="button"
-            className="btn btn-warning"
-            onClick={() => handleReturnHome()}
-          >
-            Go Back Home
-          </button>
-        )}
-        <div className=" d-flex d-flex justify-content-center mb-3">
-          <h1 className="text-slaned ">Recipe List</h1>
-        </div>
 
-        <div className="row recipe-list">
-          {results.weather.map((result, index) => (
-            <DisplayWeather key={index} result={result} />
-          ))}
-        </div>
+      <div className="ui segments results">
+        {error ? (
+          <div className="ui segment">
+            <p className="error">City not found...</p>
+            <p className="error">Try with different city.</p>
+          </div>
+        ) : (
+          <DisplayWeather results={results} />
+        )}
       </div>
-    </>
+    </div>
   );
 }

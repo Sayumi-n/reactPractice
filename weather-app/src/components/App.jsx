@@ -1,14 +1,20 @@
 import React, { useContext } from "react";
 import Weather from "./Weather";
 import { WeatherContext } from "../context/WeatherContext";
+import "./App.css";
 
 function App() {
   const appContext = useContext(WeatherContext);
   const { loading, search } = appContext;
   return (
-    <div>
+    <div className="ui container  main-page">
       {loading ? (
-        <h1 className="text-center">...fetching {search} recipe</h1>
+        <div className="ui container">
+          <div className="ui active inverted dimmer">
+            <div className="ui text loader">Loading {search} weather...</div>
+          </div>
+          <p></p>
+        </div>
       ) : (
         <Weather />
       )}

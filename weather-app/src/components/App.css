@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("https://cdn.pixabay.com/photo/2017/10/05/21/28/clouds-2821064__480.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+p {
+  text-align: center;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+h4 {
+  text-align: center;
+  font-size: 20px;
+  font-weight: normal;
+}
+.flag {
+  margin-left: 10px;
+}
+
+.search-bar {
+  text-align: center;
+}
+
+.results {
+}
+.main-page {
+  margin-top: 20px;
+}
+
+.min {
+  color: #00a79d;
+}
+.max {
+  color: #f77754;
+}
+
+.error {
+  color: #f77754;
+}

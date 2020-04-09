@@ -9,7 +9,8 @@ const WeatherProvider = (props) => {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
-  // let url = `https://api.openweathermap.org/data/2.5`;
+  const [error, setError] = useState(false);
+  // const [forecast, setForecast] = useState([]);
 
   const fetchWeather = async () => {
     const response = await OpenWeather.get(
@@ -17,22 +18,29 @@ const WeatherProvider = (props) => {
     );
     setResults(response.data);
     setLoading(false);
-    console.log(results);
   };
+
+  // const fetchForecast = async () => {
+  //   const response = await OpenWeather.get(
+  //     `/forecast?q=vancouver&appid=${KEY}&units=metric&cnt=8`
+  //   );
+  //   setForecast(response.data);
+  //   setLoading(false);
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
-      setLoading(true);
       const response = await OpenWeather.get(
         `/weather?q=${search}&appid=${KEY}&units=metric`
       );
-
       setResults(response.data);
       setLoading(false);
-      setShowHomeButton(true);
+      setError(false);
     } catch (e) {
-      console.log(e);
+      setLoading(false);
+      setError(true);
     }
   };
   const handleSearchChange = (e) => {
@@ -45,6 +53,7 @@ const WeatherProvider = (props) => {
 
   useEffect(() => {
     fetchWeather();
+    // fetchForecast();
   }, []);
 
   return (
@@ -54,6 +63,8 @@ const WeatherProvider = (props) => {
         search,
         showHomeButton,
         results,
+        error,
+
         handleSearchChange,
         handleSubmit,
         handleReturnHome,
