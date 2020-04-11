@@ -69,12 +69,10 @@ export default function DisplayWeather({ results }) {
           </div>
         </div>
       </div>
-      {/* <div
+      <div
         className="ui center aligned segment"
         style={{ backgroundColor: "rgba(255,255,255,0.7)" }}
-      >
-
-      </div> */}
+      ></div>
     </>
   );
 }
