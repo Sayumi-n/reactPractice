@@ -20,14 +20,6 @@ const WeatherProvider = (props) => {
     setLoading(false);
   };
 
-  // const fetchForecast = async () => {
-  //   const response = await OpenWeather.get(
-  //     `/forecast?q=vancouver&appid=${KEY}&units=metric&cnt=8`
-  //   );
-  //   setForecast(response.data);
-  //   setLoading(false);
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -53,7 +45,6 @@ const WeatherProvider = (props) => {
 
   useEffect(() => {
     fetchWeather();
-    // fetchForecast();
   }, []);
 
   return (
@@ -76,3 +67,11 @@ const WeatherProvider = (props) => {
 };
 const WeatherConsumer = WeatherContext.Consumer;
 export { WeatherProvider, WeatherConsumer, WeatherContext };
+
+// const fetchForecast = async () => {
+//   const response = await OpenWeather.get(
+//     `/forecast?q=vancouver&appid=${KEY}&units=metric&cnt=8`
+//   );
+//   setForecast(response.data);
+//   setLoading(false);
+// };
